@@ -1,0 +1,27 @@
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+
+        s = s.replace(" ", "")
+
+        left = 0
+        right = len(s) - 1
+
+        while left < right:
+
+            current_left = s[left]
+            current_right = s[right]
+
+            if not current_left.isalnum():
+                left += 1
+                continue
+            
+            if not current_right.isalnum():
+                right -= 1
+                continue  
+                
+            if current_left.lower() == current_right.lower():
+                left += 1
+                right -= 1
+            else:
+                return False
+        return True
